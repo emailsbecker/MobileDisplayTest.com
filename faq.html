@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <title>MobileDisplayTest.com</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <script src="./js/index.js"></script>
+</head>
+
+<body>
+
+	<p><b>FAQ</b></p>
+
+	<p style="margin-left: 40px">
+		<b>Why doesn't my page load, or look the way I expect it to?</b>
+	</p>
+	<p style="margin-left: 80px">
+		<b>1.</b> If the website you're checking uses or violates Content Security Policies (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">CSPs</a>) Cross-Origin Resource Sharing (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a>), or a <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same-origin policy</a> it will not (and cannot) be loaded into iframes.  I cannot do server-side tricks to save the webpage then load it because this website is a static file hosted in an AWS bucket, not on a server.
+		<br><br>
+		<b>2.</b> Does the URL you're pasting into the input field contain a www. subdomain?  If so, have you created that subdomain on your server/container?  Some people don't know that the www is a subdomain, and that using it in your URL means you need to have that subdomain or your page won't load (you will also need to redirect it to wherever your index page is). I've chosen not to code around this because you need to know whether your site (and possibly subdomains) are working properly, and having it fail here might be the only alert you get that there might be a problem on your end.  Thus my page intentionally does not add or remove "http://", "https://", or "www." for you.
+		<br><br>
+		<b>3.</b> Non-universal fonts may not be loaded in the iframes (I haven't tested it). If you're using those be aware the iframes may load a different font in its place. The iframes can still be handy for checking the placement/layout of elements. If you think this is a problem I would say if your your website layout drastically changes based on the kerning of your fonts (or lack thereof) then your pixel height & width tolerances are probably too tight to begin with. 
+	</p>
+	<p style="margin-left: 40px">
+		<b>What features are you planning to implement?  What's your schedule for updating?</b>
+	</p>
+	<p style="margin-left: 80px">
+		Further down this page you'll see my to-do list, what features were suggested that I might implement, and features that have been suggested but I may not implement.  As for my updating schedule ... To be honest, I have at least 3-4 other projects going on that are higher priority than this, so I'm not making any promises about an update schedule.
+	</p>
+	<p style="margin-left: 40px">
+		<b>Would you accept help?</b>
+	</p>
+	<p style="margin-left: 80px">
+		Absolutely.  If you see something in my to-do list that you know you could whip out in half an hour, go for it.  You can download the main page (Save As) and have fun with it.  If you do one of the items on the to-do list I'd be happy to give you credit and link to your site/blog/social media if you want.
+	</p>
+	<p style="margin-left: 40px">
+		<b>What is your marketing strategy?</b>
+	</p>
+	<p style="margin-left: 80px">
+		I don't have one.  The AWS bucket for this site is $0.50/mo for up to 10,000 requests.  I can't imagine it ever costing me much money to host this site.  So this is a free site.  I don't want your email address.  If you want to donate, feel free.  If you want to support some of my other projects, please do.  
+	</p>
+	<hr>
+
+	<p><b>To do list:</b></p>
+
+	<p style="margin-left: 40px">
+		Research DPI for each model and note them.
+		<br><br>
+		Implement either a loading icon or some other way to let the user know that clicking the Go button was accepted.
+		<br><br>
+		Have the site accept parameters in the URL. This will allow you to email a link to a client where the client can click the link, come here, and have their page already loaded.
+	</p>
+	<hr>
+	
+	<p><b>Suggestions under consideration:</b></p>
+	
+	<p style="margin-left: 40px">
+		Since the site is 100% client-side, I could host this on github, let people run it locally and being on github means no domain registration and people can also contribute to it. (I've already paid for 2 years of domain registration but I'll strongly consider this at the end of the two years ... maybe sooner, depends on how busy I get and whether this attracts any significant interest. Downside: your customers wouldn't be able to use the site remotely.)
+		<br><br>
+		The abiliy to request only certain iframes to load, and, if possible, hide the ones not being loaded.  (I plan to look into seeing what it would take to do this.)
+	</p>
+	<hr>
+	
+	<p><b>Suggestions not likely to be implemented:</b></p>
+	
+	<p style="margin-left: 40px">
+		URL error-checking and/or auto-adding "https://", etc.  (As noted in the FAQ above, there are reasons not to do error-checking.  I also don't want to get into it to avoid scope creep.  Please make sure you're pasting a valid link into the input box.)
+		<br><br>
+		Build this as a browser plugin.  (I can code in a few languages, but none applicable for a browser plugin.  If anything, I might go with the github suggestion explained above.)
+		<br><br>
+		Arrange the iframes in a table such that some are shown next to each other to take advantage of wide monitors/displays.  (I don't see myself doing this for a number of reasons. First, not everyone has wide monitors so I'd need to write code to query your display size, modify my tables bsaed on that, etc.  I don't think it's necessary for such a simple site.  Second, because I am considering a different suggestion for only loading certain iframes, see above.  And lastly, come on ... just use the Page Up and Page Down buttons! =) )
+		<br><br>
+		Emulate what apps would look like on each screen, like Outlook.  (I'm not going to do this as part of this project.  What you could do is build a site that emulates apps, then load that website in this page.)
+		<br><br>
+		Modify the iframe display settings based on the DPI of individual phone displays.  (Sorry, but this would be too much work.  I'll have to point you to one of those sites you need to pay for.)
+	</p>
+
+</body>
+
+</html>
